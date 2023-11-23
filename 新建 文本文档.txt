@@ -1,0 +1,6 @@
+图像处理 pillow、
+
+首先安装 PyQt5 模块和Qt Designer：
+pip install PyQt5
+pip install pyqt5-tools
+利用 pyuic5 工具生成 Python 代码，使用格式：pyuic5 -o name.py name.ui
