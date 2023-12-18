@@ -2,15 +2,26 @@ import os
 from PIL import Image
 
 
+def is_image_file(file_path):
+    try:
+        # 尝试打开文件
+        with Image.open(file_path) as img:
+            # 如果成功打开，说明是图片文件
+            return True
+    except Exception as e:
+        # 如果打开失败，说明不是图片文件
+        return False
+
+
 def get_all_files_in_folder(folder_path):
-    files = []
-    # 遍历文件夹中的所有文件和子文件夹
-    for root, dirs, filenames in os.walk(folder_path):
-        for filename in filenames:
-            # 获取文件的完整路径
-            file_path = os.path.join(root, filename)
-            files.append(file_path)
-    return files
+    image_files = []
+    # 遍历文件夹中的所有文件
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        # 判断是否是文件且是图片文件
+        if os.path.isfile(file_path) and is_image_file(file_path):
+            image_files.append(file_path)
+    return image_files
 
 
 # 指定文件夹路径
@@ -23,7 +34,7 @@ def lujin(qian):
 
 
 # 转换文件
-def zhuanhuan(file_list, da_xiao, shucu, houzui):
+def zhuanhuan(file_list, da_xiao, shucu, houzui):  # 图片名称 图片数量 结果路径 后缀名称
     i = 1
     for file in file_list:
         # print(file)
@@ -40,6 +51,7 @@ def zhuanhuan(file_list, da_xiao, shucu, houzui):
         print(str(i) + '\t' + shucu + name + '.' + houzui)
         i += 1
     print("转换结束")
+
 
 # a = wenjian(r"D:\UserData\Desktop\py\图片\1")
 # b = r"D:\UserData\Desktop\py\图片\2"
