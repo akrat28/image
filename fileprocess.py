@@ -70,6 +70,8 @@ def shanchu(hhh, hou):
             print(str(i) + '\t' + f[:])
             i += 1
     print("删除结束")
+
+
 # a = r"D:\UserData\Desktop\py\图片\2"
 #
 # b = lujin(a)
@@ -78,3 +80,29 @@ def shanchu(hhh, hou):
 
 # filename = "jdfygkrewiuty.fdsty8ewrf87.1248907.png"
 # print(filename.split('.')[-1])
+def rename_files_to_numbers(folder_path, start_number):
+    # 批量修改文件名称为数字
+    # 获取文件夹中的所有文件
+    files = os.listdir(folder_path)
+
+    # 遍历文件夹中的每个文件
+    for index, filename in enumerate(files, start=start_number):
+        # 构建文件的完整路径
+        old_filepath = os.path.join(folder_path, filename)
+
+        # 检查文件是否是文件而不是子文件夹
+        if os.path.isfile(old_filepath):
+            # 获取文件扩展名（如 .txt）
+            file_extension = os.path.splitext(filename)[1]
+
+            # 构建新的文件名
+            new_filename = f"{index}{file_extension}"
+            # 构建新文件的完整路径
+            new_filepath = os.path.join(folder_path, new_filename)
+            print("修改中" + new_filepath)
+            # 重命名文件
+            os.rename(old_filepath, new_filepath)
+    print("修改成功")
+# a = "D:/UserData/Desktop/img/shuchu"
+# b=100
+# rename_files_to_numbers(a,b)
