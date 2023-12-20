@@ -34,7 +34,7 @@ def lujin(qian):
 
 
 # 转换文件
-def zhuanhuan(file_list, da_xiao, shucu, houzui):  # 图片名称 图片数量 结果路径 后缀名称
+def zhuanhuan(file_list, da_xiao, shucu, houzui):  # 图片名称 路径长度 结果路径 后缀名称
     i = 1
     for file in file_list:
         # print(file)

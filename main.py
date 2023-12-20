@@ -49,7 +49,7 @@ class MyMainWindow(QMainWindow):
         print("文本内容:", text_content)
         a = fileprocess.lujin(self.folder_path)
         # print(a)
-        # a[0]所有图片的名称 a[1]是图片的个数
+        # a[0]所有图片的名称 a[1]路径长度
         fileprocess.zhuanhuan(a[0], a[1], self.output_path, text_content)
 
     def sc(self):
